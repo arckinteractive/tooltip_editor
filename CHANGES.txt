@@ -4,6 +4,7 @@ x.x (mm/dd/yyyy):
 
 1.0.1 (03/30/2014):
  - fix permissions error in tooltip annotations
+ - correctly save delays of 0ms
 
 1.0 (03/29/2014):
  - Initial Release

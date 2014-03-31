@@ -39,7 +39,7 @@ function tooltip_editor_menu_modify($hook, $type, $return, $params) {
 			$positionmy = $params['positionmy'] ? $params['positionmy'] : $defaults['positionmy'];
 			$positionat = $params['positionat'] ? $params['positionat'] : $defaults['positionat'];
 			$persistent = $params['persistent'] ? $params['persistent'] : $defaults['persistent'];
-			$delay = (empty($params['delay']) && $delay !== '0') ? $defaults['delay'] : $params['delay'];
+			$delay = (empty($params['delay']) && $params['delay'] !== '0') ? $defaults['delay'] : $params['delay'];
 			$title = $params['tooltip_title'] ? $params['tooltip_title'] : $defaults['tooltip_title'];
 			$fontsize = $params['fontsize'] ? $params['fontsize'] : $defaults['fontsize'];
 			$content = $params['tooltip'] ? $params['tooltip'] : $item->getTooltip();
