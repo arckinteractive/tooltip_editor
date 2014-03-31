@@ -19,10 +19,11 @@ $annotations = elgg_get_annotations(array(
 if ($annotations) {
 	$annotation = $annotations[0];
 	$annotation->value = serialize($params);
+	$annotation->access_id = ACCESS_PUBLIC;
 	$annotation->save();
 }
 else {
-	elgg_get_site_entity()->annotate('tooltip-editor-' . $token, serialize($params));
+	elgg_get_site_entity()->annotate('tooltip-editor-' . $token, serialize($params), ACCESS_PUBLIC);
 }
 
 system_message(elgg_echo('tooltip_editor:update:success'));

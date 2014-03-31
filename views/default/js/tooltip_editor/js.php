@@ -8,7 +8,7 @@ elgg.tooltip_editor.init = function() {
 		elgg.tooltip_editor.edit($(this));
 	});
 	
-	
+
 	$('.tooltip-editor-init[title!=""]').each(function(index, item) {
 		
 		var content = $(this).children('.tooltip-editor-options').eq(0).attr('data-show-content');
