@@ -9,7 +9,7 @@ elgg.tooltip_editor.init = function() {
 	});
 	
 
-	$('.tooltip-editor-init[title!=""]').each(function(index, item) {
+	$('.elgg-menu a[title!=""]').each(function(index, item) {
 		
 		var content = $(this).children('.tooltip-editor-options').eq(0).attr('data-show-content');
 		var title = $(this).children('.tooltip-editor-options').eq(0).attr('data-show-title');

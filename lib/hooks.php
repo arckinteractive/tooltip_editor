@@ -82,7 +82,6 @@ function tooltip_editor_menu_modify($hook, $type, $return, $params) {
 			
 			$text = $item->getText();
 			
-			$return[$key]->addLinkClass('tooltip-editor-init');
 			$return[$key]->setText($text . $addon . $tipoptions);
 			$return[$key]->setTooltip(elgg_strip_tags($content));
 		}

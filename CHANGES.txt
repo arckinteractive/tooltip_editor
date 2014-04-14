@@ -2,6 +2,9 @@
 
 x.x (mm/dd/yyyy):
 
+1.0.2 ():
+ - compatibility fix to work with embed (though ultimately the bug is in embed)
+
 1.0.1 (03/30/2014):
  - fix permissions error in tooltip annotations
  - correctly save delays of 0ms
