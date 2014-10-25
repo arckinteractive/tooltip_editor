@@ -4,12 +4,25 @@ elgg.provide('elgg.tooltip_editor');
 
 elgg.tooltip_editor.init = function() {
 	$('.tooltip-editor-edit').live('click', function(e) {
-		e.preventDefault()
+		e.preventDefault();
 		elgg.tooltip_editor.edit($(this));
 	});
 	
+	// reinit tooltips on ajax complete
+	$(document).ajaxComplete(function() {
+		elgg.tooltip_editor.initQtip();
+	});
 
+	elgg.tooltip_editor.initQtip();
+}
+
+elgg.tooltip_editor.initQtip = function() {
 	$('.elgg-menu a[title!=""]').each(function(index, item) {
+		
+		var processed = $(this).attr('data-tooltip-initiated');
+		if (processed) {
+			return; // this has already been done
+		}
 		
 		var content = $(this).children('.tooltip-editor-options').eq(0).attr('data-show-content');
 		var title = $(this).children('.tooltip-editor-options').eq(0).attr('data-show-title');
@@ -19,7 +32,7 @@ elgg.tooltip_editor.init = function() {
 		}
 		
 		if (typeof title == 'undefined') {
-			var title = '';
+			var title = $(this).attr('title');
 		}
 		else {
 			title = elgg.tooltip_editor.base64decode(title);
@@ -46,8 +59,9 @@ elgg.tooltip_editor.init = function() {
 				event: $(this).children('.tooltip-editor-options').eq(0).attr('data-show-hide')
 			}
 		});
+		
+		$(this).attr('data-tooltip-initiated', 1);
 	});
-	
 }
 
 elgg.tooltip_editor.edit = function(span) {
